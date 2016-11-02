@@ -12,37 +12,37 @@ import StoreKit
 class UpgradeManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     static let sharedInstance = UpgradeManager()
     let productIdentifier = "com.careerfoundry.randomquotes.famouspeoplequotes"
-    typealias SuccessHandler = (succeeded: Bool) -> (Void)
+    typealias SuccessHandler = (_ succeeded: Bool) -> (Void)
     var upgradeCompletionHandler: SuccessHandler?
     var restoreCompletionHandler: SuccessHandler?
-    var priceCompletionHandler: ((price: Float) -> Void)?
+    var priceCompletionHandler: ((_ price: Float) -> Void)?
     var famousQuotesProduct: SKProduct?
 
     func hasUpgraded() -> Bool {
         return false
     }
     
-    func upgrade(success: SuccessHandler) {
+    func upgrade(_ success: @escaping SuccessHandler) {
         
     }
     
-    func restorePurchases(success: SuccessHandler) {
+    func restorePurchases(_ success: @escaping SuccessHandler) {
         
     }
     
-    func priceForUpgrade(success: (price: Float) -> Void) {
-        success(price: 0.0)
+    func priceForUpgrade(_ success: @escaping (_ price: Float) -> Void) {
+        success(0.0)
     }
     
     // MARK: SKPaymentTransactionObserver
     
-    func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         
     }
     
     // MARK: SKProductsRequestDelegate
     
-    func productsRequest(request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         
     }
 }
